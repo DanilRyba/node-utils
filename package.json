@@ -1,0 +1,41 @@
+{
+  "name": "@danilryba/utils",
+  "version": "0.0.1",
+  "description": "Simple utilities for JS/TS projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanilRyba/node-utils.git"
+  },
+  "author": "Danil Rybalchenko <danil.ryba01@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanilRyba/node-utils/issues"
+  },
+  "homepage": "https://github.com/DanilRyba/node-utils#readme",
+  "scripts": {
+    "build": "tsc -P tsconfig.build.json",
+    "build:clean": "rimraf ./lib && npm run build",
+    "copy-for-publish": "cpy package.json LICENSE README.md lib/",
+    "publish:remote": "npm run build:clean && npm run copy-for-publish && cd lib && npm publish",
+    "test": "jest --clearCache && jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.11.10",
+    "cpy-cli": "^4.2.0",
+    "jest": "^29.4.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.3"
+  },
+  "keywords": [
+    "helpers",
+    "utils",
+    "events",
+    "typescript",
+    "object"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
