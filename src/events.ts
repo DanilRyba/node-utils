@@ -28,17 +28,22 @@ export class Event<T = unknown> implements IEvent<T> {
 
     public async trigger(data?: T) {
         if (!this._handlers.length) {
-            return;
+            return [];
         }
 
         const copiedHandlers = Array.from(this._handlers);
+        const handlersErrors = [];
 
         await executeForEach(copiedHandlers, async (cb) => {
             try {
                 await cb(data);
             } catch (err) {
+                handlersErrors.push(err);
+
                 console.error(`Event "${this._name}" has error in handler`, err);
             }
         });
+
+        return handlersErrors;
     }
 }
