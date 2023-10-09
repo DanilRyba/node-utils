@@ -1,6 +1,6 @@
 {
   "name": "@danilryba/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple utilities for JS/TS projects",
   "repository": {
     "type": "git",
